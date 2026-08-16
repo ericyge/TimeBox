@@ -15,7 +15,7 @@ public class TimeboxSequenceController : MonoBehaviour
     public TranscriptPanel transcript;
     public MemoryCard memoryCard;
     public PortalRing portalRing;
-    public Transform memorySpaceAnchor;
+    public MemorySpaceReveal memorySpaceReveal;
 
     [Header("Voice Detection")]
     public float speakingThreshold = 0.08f;
@@ -29,16 +29,12 @@ public class TimeboxSequenceController : MonoBehaviour
     public float respondingDuration = 3f;
     public float memoryDuration = 3.5f;
 
-    Transform _xrOrigin;
     bool _isListening;
     float _silenceTimer;
     bool _responding;
 
     void Start()
     {
-        var xrOriginGo = GameObject.Find("XR Origin (XR Rig)");
-        if (xrOriginGo != null) _xrOrigin = xrOriginGo.transform;
-
         transcript.Hide();
         memoryCard.Hide();
         portalRing.gameObject.SetActive(false);
@@ -98,10 +94,10 @@ public class TimeboxSequenceController : MonoBehaviour
 
     void HandlePlayerEntered()
     {
-        if (_xrOrigin != null && memorySpaceAnchor != null)
-            _xrOrigin.position = memorySpaceAnchor.position;
-
         portalRing.gameObject.SetActive(false);
         spark.SetVisible(false);
+
+        if (memorySpaceReveal != null)
+            memorySpaceReveal.Reveal();
     }
 }

@@ -119,6 +119,52 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &285760032
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 285760034}
+  - component: {fileID: 285760033}
+  m_Layer: 0
+  m_Name: GSCutout
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &285760033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 285760032}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c57a1c501bd05549ae157cc474bd4c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: GaussianSplatting::GaussianSplatting.Runtime.GaussianCutout
+  m_Type: 1
+  m_Invert: 0
+--- !u!4 &285760034
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 285760032}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.04, y: 0, z: 0.69}
+  m_LocalScale: {x: 1.26, y: 1, z: 1.19}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1470230073}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &299639867
 GameObject:
   m_ObjectHideFlags: 0
@@ -5494,9 +5540,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d80b94ec9ed3476eb137b9b52ad2f3e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  warmLightColor: {r: 1, g: 0.75, b: 0.45, a: 1}
-  tableColor: {r: 0.35, g: 0.22, b: 0.12, a: 1}
-  cakeColor: {r: 0.95, g: 0.9, b: 0.85, a: 1}
 --- !u!1 &900004010
 GameObject:
   m_ObjectHideFlags: 0
@@ -5627,7 +5670,7 @@ MonoBehaviour:
   transcript: {fileID: 900001003}
   memoryCard: {fileID: 900002003}
   portalRing: {fileID: 900003005}
-  memorySpaceAnchor: {fileID: 900004011}
+  memorySpaceReveal: {fileID: 0}
   speakingThreshold: 0.08
   silenceToRespondDelay: 1.2
   advanceToMemoryCard: 0
@@ -6011,7 +6054,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1470230072
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6033,7 +6076,9 @@ MonoBehaviour:
   m_SortNthFrame: 1
   m_RenderMode: 0
   m_PointDisplaySize: 3
-  m_Cutouts: []
+  m_Cutouts:
+  - {fileID: 285760033}
+  - {fileID: 0}
   m_ShaderSplats: {fileID: 4800000, guid: ed800126ae8844a67aad1974ddddd59c, type: 3}
   m_ShaderComposite: {fileID: 4800000, guid: 7e184af7d01193a408eb916d8acafff9, type: 3}
   m_ShaderDebugPoints: {fileID: 4800000, guid: b44409fc67214394f8f47e4e2648425e, type: 3}
@@ -6051,7 +6096,8 @@ Transform:
   m_LocalPosition: {x: -17.3591, y: 0.33, z: 13.58623}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 285760034}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
 --- !u!1 &2092139007
